@@ -5,7 +5,14 @@
     <title>Home - PayMyBuddy</title>
 </head>
 <body>
-<h2>Bienvenue sur PayMyBuddy !</h2>
-<a th:href="@{/logout}">Déconnexion</a>
+<h2>Welcome to PayMyBuddy!</h2>
+
+<p>Hello, <span th:text="${username}">User</span> 👋</p>
+
+<form th:action="@{/logout}" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <button type="submit">Disconnect</button>
+</form>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.paymybuddy.exception;
 
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,12 +15,20 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     /**
-     * Manages validation or invalid argument errors
+     * Manages invalid argument errors
      * (E.g. negative amount, unconnected user, etc.)
      */
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Object> handleIllegalArgument(IllegalArgumentException exception, WebRequest request) {
         return buildResponse(HttpStatus.BAD_REQUEST, exception.getMessage(), request);
+    }
+
+    /**
+     * Manages validation errors
+     */
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException exception, WebRequest request) {
+        return buildResponse(HttpStatus.BAD_REQUEST, "Validation error: " + exception.getMessage(), request);
     }
 
     /**
@@ -35,6 +44,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGlobalException(Exception exception, WebRequest request) {
+        exception.printStackTrace();
         return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, "An internal error has occurred.", request);
     }
 

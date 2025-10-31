@@ -6,19 +6,21 @@
 </head>
 <body>
 
-<h2>Créer un compte</h2>
+<h2>Create an account</h2>
+
+<p th:if="${error}" style="color:red;" th:text="${error}"></p>
 
 <form th:action="@{/register}" th:object="${user}" method="post">
-    <input type="text" th:field="*{username}" placeholder="Nom d'utilisateur" required />
+    <input type="text" th:field="*{username}" placeholder="Username" required />
     <input type="email" th:field="*{email}" placeholder="Email" required />
-    <input type="password" th:field="*{password}" placeholder="Mot de passe" required />
+    <input type="password" th:field="*{password}" placeholder="Password" required />
 
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
-    <button type="submit">S'inscrire</button>
+    <button type="submit">Register</button>
 </form>
 
-<p>Déjà un compte ? <a th:href="@{/login}">Connexion</a></p>
+<p>Already have an account? <a th:href="@{/login}">Log in</a></p>
 
 </body>
 </html>

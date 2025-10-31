@@ -2,7 +2,11 @@ package com.paymybuddy.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.HashSet;
@@ -22,13 +26,17 @@ public class User {
     @Column(name = "id")
     private Integer id;
 
+    @NotBlank(message = "Username is required")
     @Column(name = "username", nullable = false, length = 50)
     private String username;
 
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email format is invalid")
     @Column(name = "email", unique = true, nullable = false, length = 100)
     private String email;
 
-    @JsonIgnore
+    @NotBlank(message = "Password is required")
+    @JsonProperty(access = Access.WRITE_ONLY)
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
