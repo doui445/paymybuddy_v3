@@ -1,4 +1,4 @@
-package com.paymybuddy.controller;
+package com.paymybuddy.controller.web;
 
 import com.paymybuddy.model.User;
 import com.paymybuddy.service.UserService;
