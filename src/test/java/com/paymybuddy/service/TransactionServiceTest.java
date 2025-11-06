@@ -13,7 +13,6 @@ import org.mockito.MockitoAnnotations;
 
 import java.math.BigDecimal;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,8 +35,8 @@ public class TransactionServiceTest {
     void setUp() {
         mocks = MockitoAnnotations.openMocks(this);
 
-        User sender = User.builder().id(1).username("alice").connections(new HashSet<>()).build();
-        User receiver = User.builder().id(2).username("bob").connections(new HashSet<>()).build();
+        User sender = User.builder().id(1).username("alice").build();
+        User receiver = User.builder().id(2).username("bob").build();
 
         sender.addConnection(receiver);
 

@@ -1,6 +1,5 @@
 package com.paymybuddy.service;
 
-import ch.qos.logback.classic.encoder.JsonEncoder;
 import com.paymybuddy.model.User;
 import com.paymybuddy.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;

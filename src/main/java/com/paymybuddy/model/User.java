@@ -42,11 +42,11 @@ public class User {
 
     @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference("sent")
-    private Set<Transaction> sentTransactions = new HashSet<>();
+    private final Set<Transaction> sentTransactions = new HashSet<>();
 
     @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference("received")
-    private Set<Transaction> receivedTransactions = new HashSet<>();
+    private final Set<Transaction> receivedTransactions = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -55,7 +55,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "connected_user_id")
     )
     @JsonIgnore
-    private Set<User> connections = new HashSet<>();
+    private final Set<User> connections = new HashSet<>();
 
     public void addConnection(User user) {
         if (user == null || user.equals(this)) return;
