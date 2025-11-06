@@ -1,0 +1,235 @@
+/* ---- RESET ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- GLOBAL ---- */
+body {
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+  background: linear-gradient(135deg, #ffb366 0%, #b36b2c 100%);
+  min-height: 100vh;
+}
+
+.login-body, .register-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- NAVBAR ---- */
+.navbar {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/*.home-container {
+  margin-top: 80px; /* espace pour laisser la navbar visible
+}*/
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link {
+  margin-left: 1.5rem;
+  color: #b36b2c;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffb366;
+}
+
+.nav-link.active {
+  font-weight: 700;
+  border-bottom: 2px solid #ffb366;
+}
+
+/* ---- CONTAINER ---- */
+.login-container, .register-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* ---- HEADER ---- */
+.login-header, .register-header {
+  margin-bottom: 1.5rem;
+}
+
+.login-header .logo, .register-header .logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.login-header h1, .register-header h1 {
+  color: #b36b2c;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* ---- LOGO ---- */
+.logo-text {
+  display: inline-block;
+  background-color: #ffb366;
+  color: white;
+  font-weight: 700;
+  font-size: 1.8rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+/* ---- FORM ---- */
+.login-form, .register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #ffb366;
+  outline: none;
+}
+
+/* ---- BUTTON ---- */
+.btn-login, .btn-register, .btn-logout {
+  background-color: #ffb366;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-login:hover, .btn-register:hover, .btn-logout:hover {
+  background-color: #43a047;
+}
+
+/* ---- MESSAGES ---- */
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.logout-message, .success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ---- REGISTER/LOGIN LINK ---- */
+.register-link, .login-link {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.register-link a, .login-link a {
+  color: #ffb366;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link a:hover, .login-link a:hover {
+  text-decoration: underline;
+}
+
+/* ---- ACCESSIBILITY ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+
+
+/*
+/* 🟧 Bouton orange spécial
+.btn-orange {
+    background-color: #F67200;
+}
+
+.btn-orange:hover {
+    background-color: #d55d00;
+}
+
+/* 🧾 Tableau des transactions
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f1f1f1;
+}
+*/
+
+
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .login-header h1 {
+    font-size: 1.3rem;
+  }
+}

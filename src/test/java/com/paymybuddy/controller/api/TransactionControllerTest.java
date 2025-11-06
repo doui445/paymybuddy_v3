@@ -1,7 +1,6 @@
-package com.paymybuddy.controller;
+package com.paymybuddy.controller.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.paymybuddy.controller.api.TransactionController;
 import com.paymybuddy.model.Transaction;
 import com.paymybuddy.model.User;
 import com.paymybuddy.service.TransactionService;

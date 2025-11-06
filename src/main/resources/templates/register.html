@@ -2,25 +2,43 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - PayMyBuddy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body class="register-body">
+    <div class="register-container">
+        <div class="register-header">
+            <div class="logo-text">PayMyBuddy</div>
+            <h1>Create an account</h1>
+        </div>
 
-<h2>Create an account</h2>
+        <!-- Global error message -->
+        <div th:if="${error}" class="error-message" th:text="${error}"></div>
 
-<p th:if="${error}" style="color:red;" th:text="${error}"></p>
+        <form th:action="@{/register}" th:object="${user}" method="post" class="register-form">
 
-<form th:action="@{/register}" th:object="${user}" method="post">
-    <input type="text" th:field="*{username}" placeholder="Username" required />
-    <input type="email" th:field="*{email}" placeholder="Email" required />
-    <input type="password" th:field="*{password}" placeholder="Password" required />
+            <!-- CSRF protection -->
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <div class="form-group">
+                <input type="text" th:field="*{username}" placeholder="Username" required />
+            </div>
 
-    <button type="submit">Register</button>
-</form>
+            <div class="form-group">
+                <input type="email" th:field="*{email}" placeholder="Email" required />
+            </div>
 
-<p>Already have an account? <a th:href="@{/login}">Log in</a></p>
+            <div class="form-group">
+                <input type="password" th:field="*{password}" placeholder="Password" required minlength="6" />
+            </div>
 
+            <button type="submit" class="btn-register">Register</button>
+        </form>
+
+        <div class="login-link">
+            <p>Already have an account? <a th:href="@{/login}">Log in</a></p>
+        </div>
+    </div>
 </body>
 </html>

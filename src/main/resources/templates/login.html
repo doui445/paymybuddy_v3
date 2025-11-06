@@ -2,36 +2,53 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - PayMyBuddy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-header">
+            <div class="logo-text">PayMyBuddy</div>
+            <h1>Login</h1>
+        </div>
 
-<h2>Login</h2>
+        <!-- Success message after registration -->
+        <p th:if="${param.registered}" class="success-message">
+            Your account has been successfully created. You can now log in.
+        </p>
 
-<!-- Success message after registration -->
-<p th:if="${param.registered}" style="color:green;">
-    Your account has been successfully created. You can now log in.
-</p>
+        <!-- Error message if invalid identifiers -->
+        <div th:if="${param.error}" class="error-message">
+            Incorrect email or password. Please try again.
+        </div>
 
-<!-- Error message if invalid identifiers -->
-<p th:if="${param.error}" style="color:red;">
-    Incorrect email or password.
-</p>
+        <!-- Logout message -->
+        <div th:if="${param.logout}" class="logout-message">
+            You have been successfully logged out.
+        </div>
 
-<p th:if="${param.logout}" style="color:green;">
-    You have been successfully logged out.
-</p>
+        <form th:action="@{/login}" method="post" class="login-form">
 
-<form th:action="@{/login}" method="post">
-    <input type="text" name="username" placeholder="Email" required />
-    <input type="password" name="password" placeholder="Password" required />
+            <!-- CSRF protection -->
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <div class="form-group">
+                <label for="username" class="sr-only">Email address</label>
+                <input type="email" id="username" name="username" placeholder="Enter your email address" required autofocus>
+            </div>
 
-    <button type="submit">Log in</button>
-</form>
+            <div class="form-group">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
 
-<p>No account yet? <a th:href="@{/register}">Register</a></p>
+            <button type="submit" class="btn-login">Log in</button>
+        </form>
 
+        <div class="register-link">
+            <p>No account yet? <a th:href="@{/register}">Register</a></p>
+        </div>
+    </div>
 </body>
 </html>

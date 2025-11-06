@@ -1,7 +1,6 @@
-package com.paymybuddy.controller;
+package com.paymybuddy.controller.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.paymybuddy.controller.api.UserController;
 import com.paymybuddy.model.User;
 import com.paymybuddy.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
