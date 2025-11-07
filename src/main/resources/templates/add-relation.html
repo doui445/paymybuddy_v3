@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Connection - PayMyBuddy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="home-body">
+    
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo-text">Pay My Buddy</div>
+        </div>
+        <div class="nav-right">
+            <a th:href="@{/home}" class="nav-link">Transfer</a>
+            <a th:href="@{/add-relation}" class="nav-link active">Add Connection</a>
+            <a th:href="@{/profile}" class="nav-link">Profile</a>
+            <form th:action="@{/logout}" method="post" class="nav-link logout-link">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <button type="submit" class="btn-logout" aria-label="Logout">Logout</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="home-container">
+        <h1 class="page-title">Add Connection Page</h1>
+
+        <!-- ADD CONNECTION FORM -->
+        <section class="add-relation-section">
+            <h2>Search for a connection</h2>
+            <div th:if="${success}" class="success-message" th:text="${success}"></div>
+            <div th:if="${error}" class="error-message" th:text="${error}"></div>
+
+            <form th:action="@{/add-relation}" method="post" class="add-relation-form" th:object="${addConnection}">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+                <div class="form-group">
+                    <label class="sr-only" th:for="*{email}">Email</label>
+                    <input type="email" 
+                           id="email" 
+                           th:field="*{email}"
+                           placeholder="Enter an email address" 
+                           autocomplete="email"
+                           required 
+                           th:errorclass="input-error" />
+                    <div class="field-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                </div>
+
+                <button type="submit" class="btn-add-relation">Add</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+
