@@ -40,4 +40,11 @@ public class PageController {
         }
         return "home";
     }
+
+    @GetMapping("/profile")
+    public String profilePage(@AuthenticationPrincipal UserDetails principal, Model model) {
+        User user = userService.getUserByEmail(principal.getUsername()).orElse(null);
+        model.addAttribute("user", user);
+        return "profile";
+    }
 }

@@ -36,10 +36,6 @@ body {
   z-index: 10;
 }
 
-/*.home-container {
-  margin-top: 80px; /* espace pour laisser la navbar visible
-}*/
-
 .nav-right {
   display: flex;
   align-items: center;
@@ -74,12 +70,13 @@ body {
   text-align: center;
 }
 
-/* ---- HOME LAYOUT ---- */
 .home-container {
   max-width: 980px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
+
+/* ---- HOME LAYOUT ---- */
 
 .transfer-section h2,
 .transactions-section h3,
@@ -208,7 +205,6 @@ body {
 .form-group select {
   width: 100%;
   padding: 0.8rem 1rem;
-  border: 1px solid #cccccc;
   border-radius: 0.75rem;
   font-size: 1rem;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -217,7 +213,7 @@ body {
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: #ffb366;
+  border-color: #fff;
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 179, 102, 0.25);
 }
@@ -227,30 +223,6 @@ body {
   grid-template-columns: 1.4fr 2fr 1fr auto;
   gap: 1rem;
   align-items: center;
-}
-
-/* HTML5 validation feedback for login/register forms */
-.form-group input:invalid,
-.form-group select:invalid {
-  border-color: #c62828;
-}
-
-/* Optional: modernize the select appearance */
-.form-group select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image:
-    linear-gradient(45deg, transparent 50%, #b36b2c 50%),
-    linear-gradient(135deg, #b36b2c 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 18px) calc(50% - 3px),
-    calc(100% - 12px) calc(50% - 3px),
-    calc(100% - 2rem) 50%;
-  background-size: 6px 6px, 6px 6px, 1px 60%;
-  background-repeat: no-repeat;
-  padding-right: 2.5rem;
 }
 
 .input-error {
@@ -265,7 +237,7 @@ body {
 }
 
 /* ---- BUTTON ---- */
-.btn-login, .btn-register, .btn-logout, .btn-transfer, .btn-add-relation {
+.btn-login, .btn-register, .btn-logout, .btn-transfer, .btn-add-relation, .btn-edit-profile {
   background-color: #ffb366;
   color: white;
   font-size: 1rem;
@@ -282,20 +254,9 @@ body {
   color: #b36b2c;
 }
 
-.btn-add-relation {
-  background-color: #F67200;
-  color: white;
-  white-space: nowrap;
-}
-
-.btn-login:hover, .btn-register:hover, .btn-logout:hover, .btn-transfer:hover {
+.btn-login:hover, .btn-register:hover, .btn-logout:hover, .btn-transfer:hover, .btn-add-relation:hover, .btn-edit-profile:hover {
   background-color: #3b82f6;
   color: white;
-  opacity: 0.95;
-}
-
-.btn-add-relation:hover {
-  background-color: #d55d00;
   opacity: 0.95;
 }
 
@@ -345,38 +306,6 @@ body {
   clip: rect(0,0,0,0);
   border: 0;
 }
-
-
-
-/*
-/* 🟧 Bouton orange spécial
-.btn-orange {
-    background-color: #F67200;
-}
-
-.btn-orange:hover {
-    background-color: #d55d00;
-}
-
-/* 🧾 Tableau des transactions
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table th, table td {
-    text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-}
-
-table th {
-    background-color: #f1f1f1;
-}
-*/
-
-
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 480px) {
