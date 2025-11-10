@@ -29,6 +29,7 @@ public class UserController {
         }
         User savedUser = userService.saveUser(user);
         URI location = URI.create("/api/users/" + savedUser.getId());
+        System.out.println(location);
         return ResponseEntity.created(location).body(savedUser);
     }
 

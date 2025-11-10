@@ -1,7 +1,7 @@
 package com.paymybuddy.configuration;
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
-import com.paymybuddy.service.security.CustomUserDetailsService;
+import com.paymybuddy.service.security.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,9 +27,9 @@ import javax.crypto.spec.SecretKeySpec;
 @RequiredArgsConstructor
 public class SpringSecurityConfig {
 
-    private final CustomUserDetailsService userDetailsService;
+    private final UserDetailsServiceImpl userDetailsService;
 
-    private String jwtKey = "66A39E5BBC888714F2C67EF6E17C1BD3A41C77F29791F44F565382EA38";
+    private final String jwtKey = "66A39E5BBC888714F2C67EF6E17C1BD3A41C77F29791F44F565382EA38";
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

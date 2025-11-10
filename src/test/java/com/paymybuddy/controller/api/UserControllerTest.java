@@ -56,11 +56,11 @@ public class UserControllerTest {
         User savedUser = User.builder()
                 .id(2)
                 .username("jane")
-                .password("jane")
+                .password("janejane")
                 .email("jane@gmail.com")
                 .build();
 
-        when(userService.saveUser(any(User.class))).thenReturn(savedUser);
+        given(userService.saveUser(any(User.class))).willReturn(savedUser);
 
         mockMvc.perform(post("/api/users")
                         .contentType(MediaType.APPLICATION_JSON)

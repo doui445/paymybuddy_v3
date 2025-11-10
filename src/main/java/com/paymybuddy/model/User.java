@@ -36,7 +36,7 @@ public class User {
     private String email;
 
     @NotBlank(message = "Password is required")
-    @JsonProperty(access = Access.WRITE_ONLY)
+    //@JsonProperty(access = Access.WRITE_ONLY)
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
